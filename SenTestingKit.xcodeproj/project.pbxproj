@@ -24,6 +24,8 @@
 		06FD3ADF1760E820007712A8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06FD3ADD1760E820007712A8 /* InfoPlist.strings */; };
 		06FD3AE21760E820007712A8 /* SenTestingKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FD3AE11760E820007712A8 /* SenTestingKitTests.m */; };
 		06FD3AED176335F0007712A8 /* SenAsyncTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FD3AEC176335F0007712A8 /* SenAsyncTests.m */; };
+		06FD3AF317636297007712A8 /* OCMockSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 06FD3AF217636297007712A8 /* OCMockSampleTests.m */; };
+		6A080ECEFC8C4A8AA3DCB15A /* libPods-SenTestingKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A03B4879BDC4DE29D437ECF /* libPods-SenTestingKitTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,10 @@
 		06FD3AE11760E820007712A8 /* SenTestingKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SenTestingKitTests.m; sourceTree = "<group>"; };
 		06FD3AEB176335F0007712A8 /* SenAsyncTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SenAsyncTests.h; sourceTree = "<group>"; };
 		06FD3AEC176335F0007712A8 /* SenAsyncTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenAsyncTests.m; sourceTree = "<group>"; };
+		06FD3AF117636297007712A8 /* OCMockSampleTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMockSampleTests.h; sourceTree = "<group>"; };
+		06FD3AF217636297007712A8 /* OCMockSampleTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMockSampleTests.m; sourceTree = "<group>"; };
+		3DF897DA4DED4BCB942E8124 /* Pods-SenTestingKitTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenTestingKitTests.xcconfig"; path = "Pods/Pods-SenTestingKitTests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		9A03B4879BDC4DE29D437ECF /* libPods-SenTestingKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SenTestingKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 				06FD3AD51760E820007712A8 /* SenTestingKit.framework in Frameworks */,
 				06FD3AD61760E820007712A8 /* UIKit.framework in Frameworks */,
 				06FD3AD71760E820007712A8 /* Foundation.framework in Frameworks */,
+				6A080ECEFC8C4A8AA3DCB15A /* libPods-SenTestingKitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +101,7 @@
 				06FD3ADA1760E820007712A8 /* SenTestingKitTests */,
 				06FD3AAF1760E820007712A8 /* Frameworks */,
 				06FD3AAE1760E820007712A8 /* Products */,
+				3DF897DA4DED4BCB942E8124 /* Pods-SenTestingKitTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +121,7 @@
 				06FD3AB21760E820007712A8 /* Foundation.framework */,
 				06FD3AB41760E820007712A8 /* CoreGraphics.framework */,
 				06FD3AD41760E820007712A8 /* SenTestingKit.framework */,
+				9A03B4879BDC4DE29D437ECF /* libPods-SenTestingKitTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -151,6 +160,8 @@
 				06FD3AE11760E820007712A8 /* SenTestingKitTests.m */,
 				06FD3AEB176335F0007712A8 /* SenAsyncTests.h */,
 				06FD3AEC176335F0007712A8 /* SenAsyncTests.m */,
+				06FD3AF117636297007712A8 /* OCMockSampleTests.h */,
+				06FD3AF217636297007712A8 /* OCMockSampleTests.m */,
 				06FD3ADB1760E820007712A8 /* Supporting Files */,
 			);
 			path = SenTestingKitTests;
@@ -189,10 +200,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06FD3AE81760E820007712A8 /* Build configuration list for PBXNativeTarget "SenTestingKitTests" */;
 			buildPhases = (
+				70152F7AAED842F5A82464F6 /* Check Pods Manifest.lock */,
 				06FD3ACE1760E820007712A8 /* Sources */,
 				06FD3ACF1760E820007712A8 /* Frameworks */,
 				06FD3AD01760E820007712A8 /* Resources */,
 				06FD3AD11760E820007712A8 /* ShellScript */,
+				46F00EC8DEA44AFC9FE0F62F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,6 +281,34 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ \"$RUN_UNIT_TEST_WITH_IOS_SIM\" = \"YES\" ]; then\ntest_bundle_path=\"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.$WRAPPER_EXTENSION\"\nenvironment_args=\"--setenv DYLD_INSERT_LIBRARIES=/../../Library/PrivateFrameworks/IDEBundleInjection.framework/IDEBundleInjection --setenv XCInjectBundle=$test_bundle_path --setenv XCInjectBundleInto=$TEST_HOST\"\nios-sim launch $(dirname $TEST_HOST) $environment_args --args -SenTest All $test_bundle_path\necho \"Finished running tests with ios-sim\"\nelse\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\nfi";
 		};
+		46F00EC8DEA44AFC9FE0F62F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-SenTestingKitTests-resources.sh\"\n";
+		};
+		70152F7AAED842F5A82464F6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -287,6 +328,7 @@
 			files = (
 				06FD3AE21760E820007712A8 /* SenTestingKitTests.m in Sources */,
 				06FD3AED176335F0007712A8 /* SenAsyncTests.m in Sources */,
+				06FD3AF317636297007712A8 /* OCMockSampleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +450,7 @@
 		};
 		06FD3AE91760E820007712A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DF897DA4DED4BCB942E8124 /* Pods-SenTestingKitTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SenTestingKit.app/SenTestingKit";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -425,6 +468,7 @@
 		};
 		06FD3AEA1760E820007712A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DF897DA4DED4BCB942E8124 /* Pods-SenTestingKitTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SenTestingKit.app/SenTestingKit";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -459,6 +503,7 @@
 				06FD3AE71760E820007712A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		06FD3AE81760E820007712A8 /* Build configuration list for PBXNativeTarget "SenTestingKitTests" */ = {
 			isa = XCConfigurationList;
@@ -467,6 +512,7 @@
 				06FD3AEA1760E820007712A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
